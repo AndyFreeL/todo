@@ -1,0 +1,14 @@
+.filter{
+  color:white;
+  cursor: pointer;
+  width: 180px;
+  height:36px;
+  line-height: 34px;
+  border: 1px solid whitesmoke;
+  text-align: center;
+  border-radius: 5px;
+  justify-content: center;
+  &:first-letter{
+    text-transform: uppercase;
+  }
+}

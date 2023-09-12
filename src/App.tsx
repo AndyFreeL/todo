@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import TodoList from './components/TodoList/TodoList';
+import Header from './components/Header/Header';
+import {useStores} from './store/useStore';
+import {Location} from "./store/location/getLocation";
+import {observer} from "mobx-react-lite";
+import AddModal from "./components/AddTodo/AddModal";
+import './App.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = observer(() => {
+    const locationStore = useStores().locationStore;
+    const modalStore = useStores().modalStore;
+
+    useEffect(() => {
+        Location().then((response) => locationStore.setLang(response.ip));
+    });
+
+    return (
+        <div className='App'>
+            <Header/>
+            <TodoList/>
+            {modalStore.showModal && <AddModal/>}
+        </div>
+    );
+});
 
 export default App;

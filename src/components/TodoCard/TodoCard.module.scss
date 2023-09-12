@@ -1,0 +1,31 @@
+.todoCard{
+  margin: 5px;
+  background: rgba(255, 255, 255, 0.21);
+  border: 2px solid gray;
+  width:370px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
+  padding: 7px;
+  &__header{
+    font-size: 18px;
+    color: wheat;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__description{
+    height: 100%;
+    width: 320px;
+    font-size: 16px;
+    color: white;
+    overflow-wrap: break-word;
+  }
+  &__buttons{
+    display: flex;
+    justify-content: space-between;
+  }
+}
